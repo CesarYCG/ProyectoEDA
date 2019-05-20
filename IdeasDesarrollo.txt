@@ -1,0 +1,16 @@
+PARA HACER UN GESTOR DE IMPRESION:
+
+1. Que el usuario ingrese su nombre
+2. Darle la bienvenida
+3. Que seleccione algunas de las funciones:
+	-Ver cuantas impresoras hay
+	-Gestionar impresoras (añadir o quitar)
+	-Encolar un archivo para imprimir
+	-Ver archivos encolados para impresion
+	-Salir
+
+*Hacer el punto 3 con un While, que pueda permitirnos seguir
+realizando los puntos anteriores hasta que decidamos salir del
+gestor
+
+*Los puntos anteriores podrían hacerse con un Switch?
