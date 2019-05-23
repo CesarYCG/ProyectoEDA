@@ -94,7 +94,7 @@ int login(){
     } while (intento < 3 && ingresa == 0);
     
     if (ingresa == 1) {
-        printf("\n\tBienvenido al Sistema\n");
+        printf("\n\n\tBienvenido al Sistema\n");
         
     } else {
         printf("\n\tHa sobrepasado el numero maximo de intentos permitidos\n");
@@ -107,15 +107,15 @@ int bienvenida()
 //	char nombre[20];
 //	printf("Por favor, ingrese su nombre\n");
 //	scanf("%s", &nombre);
-	printf("Bienvenido %s, por favor, elija alguna de las siguientes opciones:\n", USUARIO);
+	printf("\n\tBienvenido %s, por favor, elija alguna de las siguientes opciones:\n\n", USUARIO);
 	
 	return 0;
 }
 
 int menu(int a)
 {
-	printf("1. Ver impresoras disponibles \n2. A%cadir una impresora \n3. Eliminar una impresora \n4. Ver colas de impresion \n5. Mandar a imprimir un archivo\n6. Salir\n", 164);
-	printf("Seleccione una opcion por favor: ");
+	printf("\t1. Ver impresoras disponibles \n\t2. A%cadir una impresora \n\t3. Eliminar una impresora \n\t4. Ver colas de impresion \n\t5. Mandar a imprimir un archivo\n\t6. Salir\n", 164);
+	printf("\tSeleccione una opcion por favor: ");
 	scanf("%i", &a); 
 	return a;
 }
