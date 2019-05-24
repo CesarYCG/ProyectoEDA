@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include "ColaDePrioridad.h"
 
 #define USUARIO "fernando"
 #define CLAVE "maceda"
@@ -27,6 +28,16 @@ int main()
 	switch(op)
 	{
 		case 1:
+			ColaDePrioridad c;
+			crear(&c);
+			encolar(&c,3);
+			encolar(&c,5);
+			mostrar(c);
+			printf("%i\n",primero(c));
+			printf("%i\n",tamanio(c));
+			desencolar(&c);
+			mostrar(c);
+			printf("%i\n",tamanio(c));
 			break;
 		case 2:
 			break;
