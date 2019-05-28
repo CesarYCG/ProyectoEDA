@@ -5,16 +5,17 @@
 #include <stdlib.h>
 
 typedef struct TNode * ColaDePrioridad;
-//typedef struct Impresora;
+typedef struct Impresora;
 
-typedef struct{
-	char nombre[8];
+struct Impresora {
+	char[25] nombre;
+	ColaDePrioridad cola;
 	int impresiones;
-}Impresora;
+};
 
 struct TNode{
 	Impresora impre;
-//	int value;
+	int value;
 	ColaDePrioridad post;
 };
 
@@ -32,36 +33,35 @@ void destruir(ColaDePrioridad * c){ //libera el especio en memoria de la cola
 	}
 }
 
-//int val 
-void encolar(ColaDePrioridad * c,Impresora printer){ //pone un elemnto al final de la cola
+void encolar(ColaDePrioridad * c,int val){ //pone un elemnto al final de la cola
 	if((*c)==NULL){
 		(*c)=(ColaDePrioridad)malloc(sizeof(struct TNode));
-		(*c)->impre = printer;
+		(*c)->value = val;
 		(*c)->post=NULL;
 	}else{
 		ColaDePrioridad prev=NULL;
 		ColaDePrioridad aux = (*c);
 		ColaDePrioridad fst=(*c);
-		while((*c)!=NULL&&(*c)->impre.impresiones<printer.impresiones){
+		while((*c)!=NULL&&(*c)->value<val){
 			prev=(*c);
 			(*c)=(*c)->post;
 		}
 		if((*c)==NULL){
 			(*c)=(ColaDePrioridad)malloc(sizeof(struct TNode));
-			(*c)->impre = printer;
+			(*c)->value = val;
 			(*c)->post= NULL;
 			prev->post=(*c);
 			(*c)=fst;
-		}else if((*c)->impre.impresiones >= printer.impresiones){//El elemento dado al pricipio de la cola
+		}else if((*c)->value >= val){//El elemento dado al pricipio de la cola
 			if(prev == NULL){ //comprobamos que el primer elemto es mayor que el dado
 				prev = (ColaDePrioridad)malloc(sizeof(struct TNode));
-				prev->impre = printer;
+				prev->value=val;
 				prev->post = (*c);
 				(*c) = prev;
 			}else{
 				ColaDePrioridad aux = (*c); //aux ira entre prev->value y (*q)->value
 				aux = (ColaDePrioridad) malloc(sizeof(struct TNode));
-				aux->impre = printer;
+				aux->value = val;
 				prev->post = aux;
 				aux->post = (*c);
 				(*c)= fst;
@@ -84,7 +84,7 @@ int primero(ColaDePrioridad c){ //devuelve el primer elemento de la cola
 	if(c==NULL)
 		printf("La cola esta vacia\n");
 	else{
-		return c->impre.impresiones;
+		return c->value;
 	}
 	
 }
@@ -106,7 +106,7 @@ void mostrar(ColaDePrioridad c){  //muestra los elemtos de la cola
 	if(c == NULL)
 		printf("NULL\n");
 	else{
-		printf("%i->",c->impre);
+		printf("%i->",c->value);
 		mostrar(c->post);
 	}
 }

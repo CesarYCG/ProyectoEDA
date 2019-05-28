@@ -13,11 +13,15 @@
 int bienvenida();
 int menu(int);
 int login();
-
 //Fin de declaracion de prototipos de funciones
+
+//Estructuras
+
+
 
 int main()
 {
+	
 	int op; 
 	int opmenu;
 	login();
@@ -29,9 +33,11 @@ int main()
 	{
 		case 1:
 			ColaDePrioridad c;
+			c->impre.nombre=(char[8])"nombre1";
 			crear(&c);
-			encolar(&c,3);
-			encolar(&c,5);
+			encolar(&c,c->impre);
+			encolar(&c,c->impre);
+			printf("\n");
 			mostrar(c);
 			printf("%i\n",primero(c));
 			printf("%i\n",tamanio(c));
@@ -113,6 +119,7 @@ int login(){
 
     return 0;
 }
+
 int bienvenida()
 {
 //	char nombre[20];
