@@ -13,7 +13,7 @@
 struct structCola
 {
 	char nombre[MAXCOLA] [50];
-	//int head;
+//	int head;
 	int tail;
 }; typedef struct structCola cola;
 
@@ -484,8 +484,8 @@ int menu(int a)
 void crearCola(cola *miCola) //Crea la cola
 {
 	cola c;
-//	c.primero=1;
-	c.tail=0;
+//	miCola->head=1;
+	miCola->tail=0;
 //	return c;
 }
 int colaVacia(cola *miCola) //Funcion que me indicara si la cola esta vacia
@@ -518,7 +518,7 @@ void push(cola *miCola, char nombre[]) //Agrega un elemento por el tail de la co
 }
 char *pop(cola *miCola) //Elimina el elemento ubicado en el head de la cola
 {
-	char *aux; //Esta variable almacena temporalmente los datos sacados de la cola
+	char aux[50]; //Esta variable almacena temporalmente los datos sacados de la cola
 	strcpy(aux, miCola->nombre[0]);
 	reajusteColas(miCola);
 	
