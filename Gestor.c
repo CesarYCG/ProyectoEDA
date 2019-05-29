@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "ColaDePrioridad.h"
 #include "Impresora.h"
+#include "lista.h"
 
 #define USUARIO "fernando"
 #define CLAVE "maceda"
@@ -22,47 +23,34 @@ int login();
 
 int main()
 {
-	
 	int op; 
 	int opmenu;
 	login();
 	bienvenida();
 	op = menu (opmenu);
-	//printf("%i", op);
-		cola miCola1;
-			cola miCola2;
-				cola miCola3;
+	
+	Lista lista1= crearLista();
+	//cola
+	cola miCola1;
+	cola miCola2;
+	cola miCola3;
+	cola miCola4;
+	cola miCola5;
+	
+	do{			
 	switch(op)
 	{
 		case 1:
 			;
-			int op2;
-			printf("TODAS LAS IMPRESORAS");
-			printf("\n1. Impresora uno");
-			printf("\n2. Impresora dos");
-			printf("\n3. Impresora tres");
-			scanf("%d",&op2);
-			switch(op2) {
-				case 1:
-					printf("IMPRESORA 1");
-				    //Hacer paso por referencia 
-					impresora(miCola1);
-				break;
-				case 2:
-					printf("IMPRESORA 2");
-				    //Hacer paso por referencia 
-					impresora(miCola2);
-				break;
-				case 3:
-					printf("IMPRESORA 3");
-				    //Hacer paso por referencia 
-					impresora(miCola3);
-				break;
-			}
-			
-
+			addPrincipioLista(&lista1,miCola1);
+			addPrincipioLista(&lista1,miCola2);
+			addPrincipioLista(&lista1,miCola3);
+			addPrincipioLista(&lista1,miCola4);
+			addPrincipioLista(&lista1,miCola5);
+			print_list(lista1);
 			break;
 		case 2:
+			;
 			break;
 		case 3:
 			break;
@@ -76,7 +64,10 @@ int main()
 			break;
 		default:
 			printf("Opcion no valida, por favor, ingrese un valor valido ");
+			break;
 	}
+	}while(op!=6);
+	
 	return 0;
 }
 

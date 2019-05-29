@@ -3,6 +3,8 @@
 #include <string.h>
 #include <conio.h>
 #include "ColaDePrioridad.h"
+#include "lista.h"
+#include "Impresora.h"
 
 #define USUARIO "fernando"
 #define CLAVE "maceda"
@@ -28,26 +30,17 @@ int main()
 	bienvenida();
 	op = menu (opmenu);
 	printf("%i", op);
+	cola miCola1;
 	
 	switch(op)
 	{
 		case 1:
 			;
-			ColaDePrioridad c;
-			c->impre.impresiones=5;
-		//	c->impre.nombre="nombre1";
-			crear(&c);
-			encolar(&c,c->impre);
-			encolar(&c,c->impre);
-			printf("\n");
-			mostrar(c);
-			printf("%i\n",primero(c));
-			printf("%i\n",tamanio(c));
-			desencolar(&c);
-			mostrar(c);
-			printf("%i\n",tamanio(c));
+			lista1();
 			break;
 		case 2:
+			;
+			impresora(miCola1);
 			break;
 		case 3:
 			break;

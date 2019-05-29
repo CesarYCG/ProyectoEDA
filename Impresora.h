@@ -9,6 +9,7 @@
 //HACIENDO UNA COLA
 
 #define MAXCOLA 5 //La impresora podra almacenar un maximo de 5 elementos
+#define USUARIO "fernando"
 
 struct structCola
 {
@@ -67,9 +68,10 @@ void impresora(cola miCola)
 					printf("La cola de impresion se encuentra vacia");
 				else
 				{
+					printf("El usuario %s ",USUARIO);
 					nombreReturn=pop(&miCola);
 					strcpy(nombre, nombreReturn);
-					printf("Se ha impreso %s y se ha retirado de la cola de impresion", nombre);
+					printf(" ha impreso %s y se ha retirado de la cola de impresion", nombre);
 				}
 				break;
 			case 3: //Muestra tope de la cola
@@ -106,8 +108,10 @@ void impresora(cola miCola)
 //--------------------PROGRAMACION DE FUNCIONES-------------------------//
 void crearCola(cola *miCola) //Crea la cola
 {
-	//miCola->head=0;
-	miCola->tail=-1;
+	cola c;
+//	c.primero=1;
+	c.tail=0;
+//	return c;
 }
 int colaVacia(cola *miCola) //Funcion que me indicara si la cola esta vacia
 {
@@ -139,7 +143,7 @@ void push(cola *miCola, char nombre[]) //Agrega un elemento por el tail de la co
 }
 char *pop(cola *miCola) //Elimina el elemento ubicado en el head de la cola
 {
-	char aux[50]; //Esta variable almacena temporalmente los datos sacados de la cola
+	char *aux; //Esta variable almacena temporalmente los datos sacados de la cola
 	strcpy(aux, miCola->nombre[0]);
 	reajusteColas(miCola);
 	
